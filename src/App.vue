@@ -1,37 +1,40 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <div>
-    <label for="theme" class="theme">
-      <span>Light</span>
-      <span class="theme__toggle-wrap">
-        <input
-          id="theme"
-          class="theme__toggle"
-          type="checkbox"
-          role="switch"
-          name="theme"
-          value="dark"
-        />
-        <span class="theme__fill"></span>
-        <span class="theme__icon">
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
-          <span class="theme__icon-part"></span>
+  <div class="container">
+    <div class="panel">
+      <span class="panel__logo">LOGO</span>
+      <label for="theme" class="theme">
+        <span>Light</span>
+        <span class="theme__toggle-wrap">
+          <input
+            id="theme"
+            class="theme__toggle"
+            type="checkbox"
+            role="switch"
+            name="theme"
+            value="dark"
+          />
+          <span class="theme__fill"></span>
+          <span class="theme__icon">
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+            <span class="theme__icon-part"></span>
+          </span>
         </span>
-      </span>
-      <span>Dark</span>
-    </label>
+        <span>Dark</span>
+      </label>
+    </div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view />
   </div>
-  <router-view />
 </template>
 
 <style lang="scss">
@@ -43,15 +46,25 @@
   color: #2c3e50;
 }
 
+.panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  border: 1px solid #000000;
+  &__logo {
+    font-size: 32px;
+  }
+}
+
 nav {
-  padding: 30px;
+  padding: 20px;
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #0b45e7;
     }
   }
 }
@@ -68,8 +81,7 @@ nav {
   --fg: hsl(var(--hue), 10%, 0%);
   --primary: hsl(var(--hue), 90%, 55%);
   --primaryT: hsla(var(--hue), 90%, 55%, 0);
-  --transDur: 0.3s;
-  font-size: calc(16px + (32 - 16) * (100vw - 320px) / (1280 - 320));
+  --transDur: 0.9s;
 }
 html,
 body {
@@ -81,9 +93,6 @@ input {
 }
 body {
   color: var(--fg);
-  height: 100vh;
-  display: grid;
-  place-items: center;
 }
 
 /* Default */
